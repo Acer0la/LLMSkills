@@ -1,6 +1,6 @@
 ---
 name: archsave
-description: Use when the user asks Codex to organize, document, read, or save a project's work architecture, especially when project information is provided and the user explicitly mentions "Organize the Work Architecture" or the Chinese phrase "整理工作架构". Also use when the user asks to briefly summarize today's work, including the Chinese phrase "简述今天工作", so Codex can summarize today's work results from the current day's work records. At task start, read existing workArchitecture/ records when workspace work memory is unavailable or before the first code task, review, or other important task in a session if those records have not been read. When saving architecture documentation, include the project's overall construction strategy, major objective steps, smaller objective workflows, and relevant follow-up work ideas for future interruption, continuation, or handoff.
+description: Use when the user asks Codex to organize, document, read, or save a project's work architecture, especially when project information is provided and the user explicitly mentions "Organize the Work Architecture" or the Chinese phrase "整理工作架构". Also use when the user asks to briefly summarize today's work, including the Chinese phrase "简述今天工作", based on the current day's work records. At task start, read existing workArchitecture/ records when workspace work memory is unavailable or before the first code task, review, or other important task in a session if those records have not been read. When saving architecture documentation, include the project's overall construction strategy, major objective steps, smaller objective workflows, and relevant follow-up work ideas for future interruption, continuation, or handoff.
 license: MIT
 ---
 
@@ -28,9 +28,11 @@ Read or modify files using UTF-8 encoding.
 
 ## 2. When the User Provides Project Information and Explicitly Mentions "Organize the Work Architecture" or the Chinese Phrase "整理工作架构"
 
-- Read the project's documentation and understand the project's framework. In short, comprehensively gather information about the project. Then inspect and organize information such as the site's structure under the local directory. After that, compile a development technical document that makes it easier to develop this site project and includes all important information about the site and the open-source project. Save it in a separate folder under the current working directory.
+- Read the project's documentation and understand the project's framework. In short, comprehensively gather information about the project; then inspect and organize information such as the site's structure under the local directory.
+- Only if the user explicitly asks you to "write documentation", compile a technical document that makes it easier to develop this site project and includes important information about the site and related open-source projects.
 
 ## 3. When the User Mentions "Summarize Today's Work" or the Chinese Phrase "简述今天工作"
 
-- Use the current day's work records to summarize today's work results as one paragraph.
-- If today's work contains large or important changes, make the summary appropriately longer while keeping it focused on outcomes.
+- Use Git to compare local files with the GitHub remote. Based only on additions shown by the comparison and your memory, prepare two update lists, grouped by feature and ordered by function. Use this format: `- Major item` followed by an indented `- 1. Minor item`.
+- The first list is for programmers. Keep it concise, identify entry points and changes, and make it suitable for Git commit notes.
+- The second list is for the internal development team. List how to use each feature, what was updated, and where to access it. Keep the announcement concise; specific implementation details may be omitted, but explain how to use the feature and where it is available. Do not repeat feature descriptions already announced; describe only the usage or feature changes and where to find them.
