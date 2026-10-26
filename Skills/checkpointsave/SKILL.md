@@ -1,6 +1,6 @@
 ---
 name: checkpointsave
-description: Use at the start and end of coding, review, refactor, architecture, debugging, project-rule, or other important workspace tasks in any workspace. At task start, read existing ./workCheckpoint/Rules/ and ./workCheckpoint/Works/ records when this is the first important task in the workspace/session or when prior workspace memory is unavailable. At the end of a substantial or overall body of work, or a meaningful work stage, save a consolidated, concise rule or work checkpoint under ./workCheckpoint/, including the current objective's construction strategy, completed objectives, next objectives, and the work-ending prompt when relevant. Avoid checkpointing every minor change so the workspace does not accumulate many low-content files.
+description: Use at the start and end of coding, review, refactor, architecture, debugging, project-rule, or other important tasks in any workspace. At task start, read existing ./workCheckpoint/Rules/ and ./workCheckpoint/Works/ records when this is the first important task in the current workspace or when workspace memory is unavailable. At the end of a substantial or overall body of work, or a meaningful work stage, save consolidated, concise rule or work checkpoints under ./workCheckpoint/, including the current objective's construction strategy, completed objectives, next objectives, and any necessary closing notes. Avoid creating a checkpoint for every minor change so the workspace does not accumulate many low-content records.
 license: MIT
 ---
 
@@ -12,7 +12,7 @@ Before answering or editing for any coding, review, refactor, architecture, debu
 
 Read or modify files using UTF-8 encoding.
 
-1. If this is the first important task in the current workspace/session, or workspace memory is unavailable, read this skill first.
+1. If this is the first important task in the current workspace, or workspace memory is unavailable, read this skill first.
 2. Read all existing Markdown files under `./workCheckpoint/Rules/` if the directory exists.
 3. Read all existing Markdown files under `./workCheckpoint/Works/` if the directory exists.
 4. Treat those records as active workspace context before continuing.
@@ -20,8 +20,8 @@ Read or modify files using UTF-8 encoding.
 
 ## 1. Record Work
 
-- Saving rules: Whenever the user gives important input about this project, such as coding standards, project architecture, file architecture, file or folder naming conventions, variable naming conventions, workflows, or other rules that will have a long-term impact on the project, record them in the directory specified below. Keep the record brief while preserving its core meaning.
-- Saving work records: Record the operation process and key points only after a substantial or overall body of work, or a meaningful work stage, is complete. Consolidate related changes into one brief checkpoint instead of creating a separate low-content file after every minor change or update. Also preserve the current objective's construction strategy, completed objectives, and next objectives when they help future interruption and continuation. Report in the response: "Checkpoint recorded."
+- Saving rules: Whenever the user provides important information with a long-term impact on the project, such as coding standards, project architecture, file structure, file or folder naming conventions, variable naming conventions, workflows, or other rules, record it in the directory specified below. Keep the record as brief as possible while preserving its core meaning.
+- Saving work records: Record the operation process and key points only after a substantial or overall body of work, or a meaningful work stage, is complete. Consolidate related changes into one concise checkpoint instead of creating a separate file after every minor change. Also record the current objective's construction strategy, completed objectives, and next objectives when they help resume work after an interruption or support handoff. Keep all saved information as concise and focused as possible. Report in the response: "Checkpoint recorded."
 - Saving rules: Use Chinese to record work rules.
 - Saving work records: Use Chinese to record work records.
 
@@ -31,12 +31,12 @@ File saving rules:
 - Markdown escape characters are allowed.
 - The file name must be "current date (accurate to the minute) + operation focus".
 
-- Saving rules: Save documents under the `./workCheckpoint/Rules/` path in the current working directory. If this folder does not exist, it may be created. If previously created records exist in the root directory, move them into this folder.
-- Saving work records: Save documents under the `./workCheckpoint/Works/` path in the current working directory. If this folder does not exist, it may be created. If previously created records exist in the root directory, move them into this folder.
+- Saving rules: Save documents under the `./workCheckpoint/Rules/` path in the current working directory. If this folder does not exist, it may be created. If work rule records were previously saved in the root directory, move them into this folder.
+- Saving work records: Save documents under the `./workCheckpoint/Works/` path in the current working directory. If this folder does not exist, it may be created. If work records were previously saved in the root directory, move them into this folder.
 
 ## 2. Automatic Trigger at Task Start
 
-If you do not have any memory about work in this workspace, or if this conversation is the first code task, review, or other important task in the session and you have not read the work rules (`workCheckpoint\Rules`) or work records (`workCheckpoint\Works`), read them and remember them. This is important.
+If workspace memory is unavailable, or if this is the first coding, review, or other important task in the current conversation and you have not yet read the work rules (`workCheckpoint\Rules`) or work records (`workCheckpoint\Works`), read and remember those records. This is important.
 
 ## 3. Automatic Trigger at Task End
 
@@ -60,5 +60,5 @@ When triggered automatically, save the checkpoint before the final response and 
 
 - For coding tasks, before the final response, check how many files were modified in this task and whether any modules or persistent formats were added.
 - If the completed work is substantial or represents a meaningful stage and meets a trigger above, create the checkpoint directly without asking.
-- When saving a task-end checkpoint, include the work-ending prompt when it is relevant to future continuation or handoff.
-- When saving a task-end checkpoint, include the current objective's construction strategy, completed objectives, and next objectives when they help future interruption, continuation, or handoff.
+- When saving a task-end checkpoint, include closing notes when they help future continuation or handoff.
+- When saving a task-end checkpoint, include the current objective's construction strategy, completed objectives, and next objectives when they help resume work after an interruption or support handoff.
