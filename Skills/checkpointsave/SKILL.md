@@ -51,6 +51,7 @@ At the end of a substantial or overall task, or a meaningful work stage, automat
 
 Do not use this skill automatically in the following cases:
 
+- Reviews, reading, discussions, or other activities that do not modify any files.
 - Pure question answering with no file changes.
 - A very small single-file fix.
 - Formatting-only changes.
@@ -58,7 +59,10 @@ Do not use this skill automatically in the following cases:
 
 When triggered automatically, save the checkpoint before the final response and briefly state the checkpoint path in the final response.
 
+Also note the following:
+
 - For coding tasks, before the final response, check how many files were modified in this task and whether any modules or persistent formats were added.
 - If the completed work is substantial or represents a meaningful stage and meets a trigger above, create the checkpoint directly without asking.
 - When saving a task-end checkpoint, include closing notes when they help future continuation or handoff.
 - When saving a task-end checkpoint, include the current objective's construction strategy, completed objectives, and next objectives when they help resume work after an interruption or support handoff.
+- Important: Always strive to keep checkpoint text concise and focused. Omit meaningless statements.
