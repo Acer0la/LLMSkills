@@ -1,3 +1,3 @@
 # Global Skills
 
-- Always read and use global Skills in every conversation turn.
+- Always read global Skills in first conversation turn.
